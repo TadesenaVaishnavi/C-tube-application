@@ -90,3 +90,10 @@ CREATE TABLE category(
     categoryId VARCHAR(255) PRIMARY KEY,
     categoryName VARCHAR(255),
 );
+CREATE TABLE video_category(
+    videoId INT,
+    categoryId VARCHAR(255),
+    PRIMARY KEY (videoId, categoryId),
+    FOREIGN KEY (videoId) REFERENCES video(videoId),
+    FOREIGN KEY (categoryId) REFERENCES category(categoryId)
+);
