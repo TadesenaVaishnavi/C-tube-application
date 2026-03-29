@@ -1,4 +1,4 @@
-package controller;
+package com.example.CTube.controller;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import model.Video;
-import service.VideoService;
+import com.example.CTube.model.Video;
+import com.example.CTube.service.VideoService;
+
 
 @RestController
 @RequestMapping("/api/ctube")
@@ -34,10 +35,10 @@ public class VideoController {
 
         try {
             service.uploadVideo(videofile, thumbnailfile, title);
-            return ResponseEntity.ok("File Uploaded Successfully ✅");
+            return ResponseEntity.ok("File Uploaded Successfully");
 
         } catch (IOException e) {
-            return ResponseEntity.internalServerError().body("Upload failed ❌");
+            return ResponseEntity.internalServerError().body("Upload failed");
         }
     }
 

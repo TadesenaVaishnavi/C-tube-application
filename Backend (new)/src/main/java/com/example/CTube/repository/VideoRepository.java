@@ -1,8 +1,9 @@
-package repository;
+package com.example.CTube.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import model.Video;
+import com.example.CTube.model.Video;
+
 
 public interface VideoRepository extends JpaRepository<Video, Long>{
 

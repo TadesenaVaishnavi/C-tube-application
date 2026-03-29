@@ -1,4 +1,4 @@
-package service;
+package com.example.CTube.service;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,8 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import model.Video;
-import repository.VideoRepository;
+import com.example.CTube.model.Video;
+import com.example.CTube.repository.VideoRepository;
+
 
 @Service
 public class VideoService {
@@ -23,6 +24,10 @@ public class VideoService {
     public void uploadVideo(MultipartFile videofile, MultipartFile thumbnailfile, String title) throws IOException {
 
         try {
+        	
+        	if (videofile.isEmpty() || thumbnailfile.isEmpty()) {
+        	    throw new RuntimeException("File is empty");
+        	}
 
             // Save Video
             String videoName = System.currentTimeMillis() + "_" + videofile.getOriginalFilename();
@@ -54,14 +59,14 @@ public class VideoService {
             videoRepository.save(video);
 
         } catch (Exception e) {
-            throw new RuntimeException("Upload failed");
+            throw new RuntimeException("Upload failed" + e.getMessage());
         }
     }
 
     // Get Single Video
     public Video getVideo(Long id) {
         return videoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Video not found"));
+                .orElseThrow(() -> new RuntimeException("Video not found" ));
     }
 
     // Get All Videos

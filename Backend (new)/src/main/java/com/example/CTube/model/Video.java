@@ -1,4 +1,4 @@
-package model;
+package com.example.CTube.model;
 
 import java.time.LocalDateTime;
 
@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
 public class Video {
@@ -21,7 +20,7 @@ public class Video {
 	
 	private String thumbnailPath;
 	private String thumbnailContentType;
-	private Long Size;
+	private Long size;
 	private LocalDateTime uploadAt;
 	
 	
@@ -74,11 +73,11 @@ public class Video {
 	}
 	
 	public Long getSize() {
-		return Size;
+		return size;
 	}
 	
 	public void setSize(Long size) {
-		Size = size;
+		this.size = size;
 	}
 	
 	public LocalDateTime getUploadAt() {
