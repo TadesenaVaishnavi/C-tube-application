@@ -8,7 +8,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import ForgotPassword from "./pages/Auth/ForgotPassword";
-// import Profile from "./pages/Profile/Profile"; 
+import Profile from "./pages/Profile/Profile"; 
 
 function Layout() {
   return (
@@ -34,7 +34,7 @@ function App() {
         {/* WITH Navbar */}
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/profile" element={<Profile />} /> */}
+          <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
