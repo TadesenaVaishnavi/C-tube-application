@@ -1,17 +1,40 @@
-function VideoCard() {
+import React from "react";
+
+const VideoCard = () => {
   return (
-    <div className="bg-[#181818] p-3 rounded-xl">
-    <div className="h-40 bg-gray-600 rounded-lg mb-2"></div>
+    <div style={styles.card}>
+      <div style={styles.thumb}></div>
 
-      <h3 className="font-semibold">Title of the video</h3>
-
-    
-      <p className="text-gray-400 text-sm">
-        Channel Name • 7,382 views • 2 years ago
-      </p>
-
+      <div>
+        <h4 style={styles.title}>Title of the video</h4>
+        <p style={styles.channel}>Channel Name</p>
+      </div>
     </div>
   );
-}
+};
+
+const styles = {
+  card: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "8px",
+  },
+
+  thumb: {
+    height: "180px",
+    background: "#333",
+    borderRadius: "10px",
+  },
+
+  title: {
+    fontSize: "14px",
+    margin: 0,
+  },
+
+  channel: {
+    fontSize: "12px",
+    color: "gray",
+  },
+};
 
 export default VideoCard;

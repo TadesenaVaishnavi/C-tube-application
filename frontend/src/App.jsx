@@ -1,26 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
-import ForgotPassword from "./Pages/ForgotPassword";
+import React from "react";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 import Channel from "./Pages/Channel";
 
-function App() {
+const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-       
-        <Route path="/" element={<Channel />} />
-
-        
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-
-        {/* Channel */}
-        <Route path="/channel" element={<Channel />} />
-      </Routes>
-    </BrowserRouter>
+    <div style={{ background: "#000", minHeight: "100vh" }}>
+      <Navbar />
+      <Sidebar />
+      <Channel />   {/* ✅ THIS MUST BE HERE */}
+    </div>
   );
-}
+};
 
 export default App;
