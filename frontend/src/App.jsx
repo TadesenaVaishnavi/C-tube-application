@@ -1,8 +1,9 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-// Components
-import Navbar from "./components/Navbar/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar";
+import React from "react";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Channel from "./Pages/Channel";
 
+const App = () => {
 // Pages
 // recommendation-system
 import Home from "./Pages/Home/Home";
@@ -21,9 +22,13 @@ import Profile from "./pages/Profile/Profile";
 // main
 function Layout() {
   return (
-    <div>
+    <div style={{ background: "#000", minHeight: "100vh" }}>
       <Navbar />
       <Sidebar />
+      <Channel />  
+    </div>
+  );
+};
       <div className="main-content">
 // recommendation-system
         <Home /> {/* Direct render for now */}
