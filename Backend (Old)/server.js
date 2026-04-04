@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');// Add CORS support
 const path = require('path');
 
-const userRoutes = require('../Backend/routes/userRoutes');
-const videoRoutes = require('../Backend/routes/videoRoutes');
-const channelRoutes = require('../Backend/routes/channelRoutes');
-const likeRoutes = require('../Backend/routes/likeRoutes');
-const subscriptionRoutes = require('../Backend/routes/subscriptionRoutes');
-const playlistRoutes = require('../Backend/routes/playlistRoutes');
+const userRoutes = require('./routes/userRoutes');
+const videoRoutes = require('./routes/videoRoutes');
+const channelRoutes = require('./routes/channelRoutes');
+const likeRoutes = require('./routes/likeRoutes');
+const subscriptionRoutes = require('./routes/subscriptionRoutes');
+const playlistRoutes = require('./routes/playlistRoutes');
 // Add other routes as needed
 
 const app = express();
