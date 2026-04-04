@@ -26,4 +26,16 @@ public class CommentController {
     public List<Comment> getComments() {
         return commentService.getAllComments();
     }
+
+    
+    @PutMapping("/{id}/like")
+    public Comment likeComment(@PathVariable Long id) {
+        return commentService.likeComment(id);
+    }
+
+    
+    @PutMapping("/{id}/unlike")
+    public Comment unlikeComment(@PathVariable Long id) {
+        return commentService.unlikeComment(id);
+    }
 }
