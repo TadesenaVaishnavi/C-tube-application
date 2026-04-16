@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./WatchParty.css";
+import "./watchParty.css";
 
 const WatchParty = () => {
   const [activeTab, setActiveTab] = useState("chat");
