@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./watchparty.css";
+import "./WatchParty.css";
 
 const WatchParty = () => {
   const [activeTab, setActiveTab] = useState("chat");
   const [messages, setMessages] = useState([
-    { text: "They are preparing for another stunt I think!", color: "yellow" },
-    { text: "Is he going to fall from the top of the plane??", color: "pink" },
-    { text: "This is so funny!", color: "grey" },
+    { text: "They are preparing for another stunt!", color: "yellow" },
+    { text: "Is he going to fall?", color: "pink" },
+    { text: "This is funny 😂", color: "grey" },
   ]);
   const [input, setInput] = useState("");
 
@@ -17,28 +17,19 @@ const WatchParty = () => {
   };
 
   return (
-    <div className="main-container">
-
-      {/* Tabs */}
+    <div className="watchparty">
       <div className="tabs">
-        <button className={`tab-btn ${activeTab==="chat"?"active":""}`} onClick={()=>setActiveTab("chat")}>
-          <img src="/icons/chat.png" />
-        </button>
-        <button className={`tab-btn ${activeTab==="video"?"active":""}`} onClick={()=>setActiveTab("video")}>
-          <img src="/icons/video.png" />
-        </button>
-        <button className={`tab-btn ${activeTab==="people"?"active":""}`} onClick={()=>setActiveTab("people")}>
-          <img src="/icons/participants.png" />
-        </button>
+        <button onClick={()=>setActiveTab("chat")} className={activeTab==="chat"?"active":""}>💬</button>
+        <button onClick={()=>setActiveTab("video")} className={activeTab==="video"?"active":""}>🎬</button>
+        <button onClick={()=>setActiveTab("people")} className={activeTab==="people"?"active":""}>👥</button>
       </div>
 
-      {/* CHAT */}
       {activeTab === "chat" && (
-        <div className="tab-content show">
-          <div className="content-body chat-body">
-            {messages.map((msg, i) => (
+        <>
+          <div className="chat-body">
+            {messages.map((msg,i)=>(
               <div className="msg" key={i}>
-                <span className={`avatar ${msg.color}`}></span>
+                <span className={`avatar1 ${msg.color}`}></span>
                 {msg.text}
               </div>
             ))}
@@ -46,60 +37,27 @@ const WatchParty = () => {
 
           <div className="input-area">
             <input
-              placeholder="Type your message ..."
               value={input}
               onChange={(e)=>setInput(e.target.value)}
               onKeyDown={(e)=>e.key==="Enter" && sendMessage()}
+              placeholder="Type message..."
             />
-            <button className="send-btn" onClick={sendMessage}>➤</button>
+            <button onClick={sendMessage}>➤</button>
           </div>
-        </div>
+        </>
       )}
 
-      {/* VIDEO */}
       {activeTab === "video" && (
-        <div className="tab-content show">
-
-          <div className="upnext">Up Next ...</div>
-
-          <div className="content-body">
-            {[1,2,3,4].map((item)=>(
-              <div className="video-item" key={item}>
-                
-                <div className="thumb"></div>
-
-                <div className="video-info">
-                  <h4>Title of the video</h4>
-                  <p>Channel Name</p>
-                  <span>7,382 views • 2 years ago</span>
-                </div>
-
-                <span className="remove">×</span>
-
-              </div>
-            ))}
-          </div>
-
-          <div className="input-area">
-            <input placeholder="Click here to add video link into the queue..." />
-          </div>
+        <div className="chat-body">
+          <p>Up Next...</p>
         </div>
       )}
 
-      {/* PEOPLE */}
       {activeTab === "people" && (
-        <div className="tab-content show">
-          <div className="content-body">
-            {["grey","pink","yellow","blue"].map((c,i)=>(
-              <div className="person" key={i}>
-                <span className={`avatar ${c}`}></span>
-                Person {i+1}
-              </div>
-            ))}
-          </div>
+        <div className="chat-body">
+          <p>Participants list</p>
         </div>
       )}
-
     </div>
   );
 };

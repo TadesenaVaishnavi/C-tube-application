@@ -1,47 +1,38 @@
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import WatchParty from "./components/WatchParty";
-import Profile from "./components/Profile";
-import VideoCard from "./components/VideoCard";
-
-import Home from "./pages/Home";
-import Login from "./pages/Auth/Login";
-import Signup from "./pages/Auth/Signup";
-import ForgotPassword from "./pages/Auth/ForgotPassword";
-
-const isAuth = () => Boolean(localStorage.getItem("token"));
+import Home from "./Home";
+import Profile from "./Profile";
+import Login from "./Login";
+import Signup from "./Signup";
+import ForgotPassword from "./ForgotPassword";
+import ChannelPage from "./ChannelPage";
+import VideoPage from "./VideoPage";
+// import VideoCard from "./components/VideoCard";
+// import WatchParty from "./components/WatchParty";
+import WatchPage from "./Pages/WatchPage";
 
 export default function App() {
   return (
-    <Routes>
+    <div className="app">
+      <Router>
+        <Routes>
 
-      <Route
-        path="/"
-        element={<Navigate to={isAuth() ? "/home" : "/login"} replace />}
-      />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
-      <Route
-        path="/home"
-        element={isAuth() ? <Home /> : <Navigate to="/login" replace />}
-      />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/channelpage" element={<ChannelPage />} />
 
-      <Route
-        path="/login"
-        element={!isAuth() ? <Login /> : <Navigate to="/home" replace />}
-      />
+          {/* <Route path="/videoply" element={<VideoPly />} /> */}
+          {/* <Route path="/videocard" element={<VideoCard />} /> */}
+          {/* <Route path="/watchparty" element={<WatchParty />} /> */}
+          <Route path="/video/:id" element={<VideoPage />} />
+          <Route path="/watch" element={<WatchPage />} />
 
-      <Route
-        path="/signup"
-        element={!isAuth() ? <Signup /> : <Navigate to="/home" replace />}
-      />
-
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-
-      <Route path="/watchparty" element={<WatchParty />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/videocard" element={<VideoCard />} />
-
-    </Routes>
+        </Routes>
+      </Router>
+    </div>
   );
 }
