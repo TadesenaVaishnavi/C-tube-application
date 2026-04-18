@@ -1,63 +1,3 @@
-// import "./ChannelPage.css";
-
-// const clipList = Array(6).fill({
-//   title: "Epic Stream Clip",
-//   creator: "NovaCreator",
-//   views: "9,871 views",
-//   time: "1 year ago",
-// });
-
-// export default function StreamHub() {
-//   return (
-//     <div className="streamHub">
-      
-//       {/* Cover */}
-//       <div className="coverZone"></div>
-
-//       {/* Creator Info */}
-//       <div className="creatorBlock">
-//         <img
-//           src="/icons/spiderman.png"
-//           alt="avatar"
-//           className="creatorAvatar"
-//         />
-
-//         <div className="creatorText">
-//           <h1>Nova Creator</h1>
-//           <p>2,845 Followers</p>
-//           <button className="followBtn">Follow</button>
-//         </div>
-
-//         <div className="bioText">
-//           Welcome to this creative space where amazing content lives.
-//         </div>
-//       </div>
-
-//       {/* Clips */}
-//       <div className="clipGrid">
-//         {clipList.map((clip, idx) => (
-//           <div className="clipCard" key={idx}>
-//             <div className="clipThumb">
-//               <span>6:45</span>
-//             </div>
-
-//             <div className="clipDetails">
-//               <h3>{clip.title}</h3>
-//               <p>{clip.creator}</p>
-//               <span>
-//                 {clip.views} • {clip.time}
-//               </span>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-
-//     </div>
-//   );
-// }
-
-
-
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ChannelPage.css";
@@ -124,12 +64,12 @@ export default function ChannelPage() {
 
           {/* COVER */}
           <div className="channelBanner">
-            <img src="/icons/p.png" alt="" />
+            <img src="..." alt="" />
           </div>
 
           {/* INFO */}
           <div className="channelInfo">
-            <img src="/icons/p.png" className="channelAvatar" />
+            <img src="..." className="channelAvatar" />
 
             <div>
               <h1>CHANNEL NAME</h1>
